@@ -1,0 +1,2 @@
+D:/Thesis/android/app/.cxx/RelWithDebInfo/s341z4h5/x86_64/CMakeFiles/edit_cache.dir
+D:/Thesis/android/app/.cxx/RelWithDebInfo/s341z4h5/x86_64/CMakeFiles/rebuild_cache.dir

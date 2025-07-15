@@ -1,0 +1,47 @@
+import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import * as admin from "https://esm.sh/firebase-admin@11.5.0";
+
+// Initialize Firebase Admin
+const serviceAccount = JSON.parse(Deno.env.get("FIREBASE_SERVICE_ACCOUNT")!);
+admin.initializeApp({
+credential: admin.credential.cert(serviceAccount),
+});
+
+const corsHeaders = {
+"Access-Control-Allow-Origin": "*",
+"Access-Control-Allow-Headers": "authorization, content-type",
+};
+
+serve(async (req) => {
+// Handle CORS preflight
+if (req.method === "OPTIONS") {
+return new Response("ok", { headers: corsHeaders });
+}
+
+try {
+const { receiver_token, amount } = await req.json();
+
+// Send notification
+await admin.messaging().send({
+token: receiver_token,
+notification: {
+title: 'Money Received!',
+body: `You received ৳${amount} Taka`,
+},
+data: {
+type: 'balance_update',
+click_action: 'FLUTTER_NOTIFICATION_CLICK'
+}
+});
+
+return new Response(
+JSON.stringify({ success: true }),
+{ headers: { ...corsHeaders, "Content-Type": "application/json" } }
+);
+} catch (error) {
+return new Response(
+JSON.stringify({ error: error.message }),
+{ status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+);
+}
+});
