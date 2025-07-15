@@ -1,4 +1,4 @@
-# thesis
+# Ekash
 
 A new Flutter project.
 
