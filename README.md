@@ -54,3 +54,18 @@ flutter pub get
 Run the app
 
 flutter run
+
+Future Improvements
+
+Integration with real payment gateway APIs (bKash, Nagad, Rocket)
+
+Voice-based navigation for low-literate users
+
+Biometric authentication (Fingerprint/Face ID)
+
+Author
+
+Asiful Islam Chowdhury
+BRAC University, Computer Science Graduate
+
+Flutter Developer | HCI Researcher | Tech Enthusiast
