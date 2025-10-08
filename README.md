@@ -38,7 +38,7 @@ IDE & Tools: Android Studio, GitHub
 
 Clone the repository
 
-git clone https://github.com/yourusername/ekash.git
+git clone https://github.com/Asiful600w/ekash.git
 
 
 Navigate to the project folder
